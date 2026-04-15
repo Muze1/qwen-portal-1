@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CW Portal - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,220 +15,295 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eaf6 100%);
             min-height: 100vh;
             display: flex;
+            color: #3a3a3a;
         }
 
         /* Navigation Bar */
         .navbar {
-            width: 250px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            width: 260px;
+            background: #ffffff;
             padding: 2rem 0;
             position: fixed;
             height: 100vh;
             left: 0;
             top: 0;
-            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 2px 0 20px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             z-index: 1000;
+            border-right: 3px solid #ee8b00;
         }
 
         .navbar:hover {
-            width: 280px;
-            box-shadow: 4px 0 25px rgba(0, 0, 0, 0.15);
+            width: 290px;
+            box-shadow: 2px 0 30px rgba(238, 139, 0, 0.15);
         }
 
         .logo {
             text-align: center;
-            margin-bottom: 2rem;
-            padding: 0 1rem;
+            margin-bottom: 2.5rem;
+            padding: 0 1.5rem;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding: 0 1.5rem;
+        }
+
+        .logo-container img {
+            max-width: 180px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .logo-fallback {
+            color: #ee8b00;
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            display: none;
         }
 
         .logo h1 {
-            color: #667eea;
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 2px;
+            color: #ee8b00;
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo p {
+            color: #0274be;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: 0.5rem;
         }
 
         .nav-links {
             list-style: none;
+            padding: 0 1rem;
         }
 
         .nav-links li {
-            margin: 0.5rem 0;
+            margin: 0.3rem 0;
         }
 
         .nav-links a {
             display: flex;
             align-items: center;
-            padding: 1rem 2rem;
-            color: #333;
+            padding: 1rem 1.5rem;
+            color: #3a3a3a;
             text-decoration: none;
             transition: all 0.3s ease;
-            border-left: 4px solid transparent;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
         }
 
         .nav-links a:hover {
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-left: 4px solid #fff;
-            padding-left: 2.5rem;
+            background: linear-gradient(135deg, #ee8b00 0%, #ff9f2e 100%);
+            color: #ffffff;
+            transform: translateX(8px);
+            box-shadow: 0 4px 15px rgba(238, 139, 0, 0.3);
+        }
+
+        .nav-links a.active {
+            background: linear-gradient(135deg, #0274be 0%, #00aeef 100%);
+            color: #ffffff;
         }
 
         .nav-links a i {
             margin-right: 1rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            width: 24px;
+            text-align: center;
         }
 
         /* Main Content */
         .main-content {
-            margin-left: 250px;
+            margin-left: 260px;
             flex: 1;
             padding: 2rem;
             transition: margin-left 0.3s ease;
         }
 
         .navbar:hover ~ .main-content {
-            margin-left: 280px;
+            margin-left: 290px;
         }
 
         /* Header */
         .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
+            background: #ffffff;
+            padding: 2.5rem;
             border-radius: 15px;
             margin-bottom: 2rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #ee8b00;
         }
 
         .header h2 {
-            color: #333;
-            font-size: 2rem;
+            color: #0274be;
+            font-size: 2.2rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
         .header p {
             color: #666;
             font-size: 1.1rem;
+            font-weight: 400;
         }
 
         /* Announcements Section */
         .announcements {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
+            background: #ffffff;
+            padding: 2.5rem;
             border-radius: 15px;
             margin-bottom: 2rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #0274be;
         }
 
         .section-title {
-            color: #667eea;
-            font-size: 1.5rem;
+            color: #ee8b00;
+            font-size: 1.6rem;
+            font-weight: 700;
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
 
         .announcement-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            border-left: 5px solid #667eea;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(135deg, #fff9f0 0%, #fff 100%);
+            padding: 1.8rem;
+            border-radius: 12px;
+            margin-bottom: 1.25rem;
+            border-left: 5px solid #ee8b00;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
         }
 
         .announcement-card:hover {
             transform: translateX(10px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 25px rgba(238, 139, 0, 0.2);
         }
 
         .announcement-card:last-child {
             margin-bottom: 0;
         }
 
+        .announcement-card.info {
+            border-left-color: #0274be;
+            background: linear-gradient(135deg, #f0f8ff 0%, #fff 100%);
+        }
+
+        .announcement-card.notice {
+            border-left-color: #00aeef;
+            background: linear-gradient(135deg, #f0fbff 0%, #fff 100%);
+        }
+
         .announcement-date {
-            color: #667eea;
-            font-size: 0.9rem;
+            color: #0274be;
+            font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .announcement-title {
-            color: #333;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            color: #3a3a3a;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
         }
 
         .announcement-content {
-            color: #666;
-            line-height: 1.6;
+            color: #555;
+            line-height: 1.7;
+            font-size: 0.95rem;
         }
 
         .announcement-badge {
             display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
+            background: #ee8b00;
+            color: #ffffff;
+            padding: 0.35rem 1rem;
+            border-radius: 25px;
             font-size: 0.8rem;
-            margin-top: 0.5rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .announcement-badge.urgent {
-            background: #e74c3c;
+            background: #cf2e2e;
         }
 
         .announcement-badge.info {
-            background: #3498db;
+            background: #0274be;
+        }
+
+        .announcement-badge.notice {
+            background: #00aeef;
         }
 
         /* Quick Links Section */
         .quick-links {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
+            background: #ffffff;
+            padding: 2.5rem;
             border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #ee8b00;
         }
 
         .links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.5rem;
+            margin-top: 1.5rem;
         }
 
         .link-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 2rem;
-            border-radius: 10px;
+            background: linear-gradient(135deg, #ee8b00 0%, #ff9f2e 100%);
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
             text-align: center;
             text-decoration: none;
-            color: white;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #ffffff;
+            transition: all 0.3s ease;
             display: block;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(238, 139, 0, 0.2);
         }
 
         .link-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(238, 139, 0, 0.35);
+        }
+
+        .link-card.blue {
+            background: linear-gradient(135deg, #0274be 0%, #00aeef 100%);
+            box-shadow: 0 4px 15px rgba(2, 116, 190, 0.2);
+        }
+
+        .link-card.blue:hover {
+            box-shadow: 0 12px 35px rgba(2, 116, 190, 0.35);
         }
 
         .link-icon {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
         }
 
         .link-title {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
         }
 
@@ -236,6 +314,8 @@
                 height: auto;
                 position: relative;
                 padding: 1rem;
+                border-right: none;
+                border-bottom: 3px solid #ee8b00;
             }
 
             .navbar:hover {
@@ -246,11 +326,12 @@
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
+                gap: 0.5rem;
             }
 
             .nav-links a {
                 padding: 0.75rem 1rem;
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
 
             .main-content {
@@ -259,15 +340,19 @@
             }
 
             .links-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+
+            .header h2 {
+                font-size: 1.8rem;
             }
         }
 
         /* Animations */
-        @keyframes fadeIn {
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -275,24 +360,56 @@
             }
         }
 
-        .announcement-card,
-        .link-card {
-            animation: fadeIn 0.5s ease forwards;
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        .announcement-card:nth-child(1) { animation-delay: 0.1s; }
-        .announcement-card:nth-child(2) { animation-delay: 0.2s; }
-        .announcement-card:nth-child(3) { animation-delay: 0.3s; }
+        .navbar {
+            animation: slideInLeft 0.6s ease forwards;
+        }
+
+        .header,
+        .announcements,
+        .quick-links {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .announcement-card,
+        .link-card {
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .announcement-card:nth-child(2) { animation-delay: 0.1s; }
+        .announcement-card:nth-child(3) { animation-delay: 0.2s; }
+        .announcement-card:nth-child(4) { animation-delay: 0.3s; }
+
+        .link-card:nth-child(1) { animation-delay: 0.1s; }
+        .link-card:nth-child(2) { animation-delay: 0.15s; }
+        .link-card:nth-child(3) { animation-delay: 0.2s; }
+        .link-card:nth-child(4) { animation-delay: 0.25s; }
+        .link-card:nth-child(5) { animation-delay: 0.3s; }
+        .link-card:nth-child(6) { animation-delay: 0.35s; }
+        .link-card:nth-child(7) { animation-delay: 0.4s; }
+        .link-card:nth-child(8) { animation-delay: 0.45s; }
     </style>
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="logo">
-            <h1>CW Portal</h1>
+        <div class="logo-container">
+            <img src="cw-logo.png" alt="Charity Week Logo" class="logo-img" onerror="this.style.display='none'; document.querySelector('.logo-fallback').style.display='block';">
+            <div class="logo-fallback">CW Portal</div>
         </div>
         <ul class="nav-links">
-            <li><a href="#home"><i>🏠</i> Home</a></li>
+            <li><a href="#home" class="active"><i>🏠</i> Home</a></li>
             <li><a href="#announcements"><i>📢</i> Announcements</a></li>
             <li><a href="#quicklinks"><i>🔗</i> Quick Links</a></li>
             <li><a href="#resources"><i>📚</i> Resources</a></li>
@@ -305,9 +422,9 @@
     <!-- Main Content -->
     <main class="main-content">
         <!-- Header -->
-        <header class="header">
+        <header id="home" class="header">
             <h2>Welcome to CW Portal</h2>
-            <p>Your central hub for all course work, announcements, and resources</p>
+            <p>Your central hub for Charity Week activities, announcements, and resources</p>
         </header>
 
         <!-- Announcements Section -->
@@ -316,23 +433,23 @@
             
             <div class="announcement-card">
                 <div class="announcement-date">April 15, 2024</div>
-                <h4 class="announcement-title">Midterm Exam Schedule Released</h4>
-                <p class="announcement-content">The midterm exam schedule has been published. Please check your individual course pages for specific dates and times. Make sure to prepare accordingly and reach out to instructors if you have any conflicts.</p>
+                <h4 class="announcement-title">Global Fundraising Campaign Launch</h4>
+                <p class="announcement-content">Join us for the launch of our international fundraising campaign supporting orphans and children worldwide. Together we can make a difference in countless lives across the globe.</p>
                 <span class="announcement-badge urgent">Urgent</span>
             </div>
 
-            <div class="announcement-card">
+            <div class="announcement-card info">
                 <div class="announcement-date">April 14, 2024</div>
-                <h4 class="announcement-title">New Learning Resources Available</h4>
-                <p class="announcement-content">We've added new study materials and video tutorials to the resources section. These include practice problems, lecture recordings, and interactive quizzes to help you prepare for upcoming assessments.</p>
+                <h4 class="announcement-title">New Volunteer Training Program</h4>
+                <p class="announcement-content">We've launched a comprehensive volunteer training program to help you better serve our mission. Access training materials, videos, and interactive modules through the resources section.</p>
                 <span class="announcement-badge info">Info</span>
             </div>
 
-            <div class="announcement-card">
+            <div class="announcement-card notice">
                 <div class="announcement-date">April 12, 2024</div>
-                <h4 class="announcement-title">Campus Maintenance Notice</h4>
-                <p class="announcement-content">Scheduled maintenance will occur this weekend from Saturday 2 AM to Sunday 6 AM. Some portal features may be temporarily unavailable during this time. We apologize for any inconvenience.</p>
-                <span class="announcement-badge">Notice</span>
+                <h4 class="announcement-title">System Maintenance Scheduled</h4>
+                <p class="announcement-content">Scheduled maintenance will occur this weekend from Saturday 2 AM to Sunday 6 AM. Some portal features may be temporarily unavailable during this time. Thank you for your patience.</p>
+                <span class="announcement-badge notice">Notice</span>
             </div>
         </section>
 
@@ -341,44 +458,44 @@
             <h3 class="section-title">🔗 Quick Links</h3>
             
             <div class="links-grid">
-                <a href="#courses" class="link-card">
+                <a href="#campaigns" class="link-card">
+                    <div class="link-icon">🌍</div>
+                    <div class="link-title">Campaigns</div>
+                </a>
+
+                <a href="#donate" class="link-card blue">
+                    <div class="link-icon">❤️</div>
+                    <div class="link-title">Donate Now</div>
+                </a>
+
+                <a href="#volunteer" class="link-card">
+                    <div class="link-icon">🤝</div>
+                    <div class="link-title">Volunteer</div>
+                </a>
+
+                <a href="#events" class="link-card blue">
+                    <div class="link-icon">🎉</div>
+                    <div class="link-title">Events</div>
+                </a>
+
+                <a href="#stories" class="link-card">
                     <div class="link-icon">📖</div>
-                    <div class="link-title">My Courses</div>
+                    <div class="link-title">Success Stories</div>
                 </a>
 
-                <a href="#assignments" class="link-card">
-                    <div class="link-icon">📝</div>
-                    <div class="link-title">Assignments</div>
-                </a>
-
-                <a href="#grades" class="link-card">
-                    <div class="link-icon">📊</div>
-                    <div class="link-title">Grades</div>
-                </a>
-
-                <a href="#library" class="link-card">
+                <a href="#resources" class="link-card blue">
                     <div class="link-icon">📚</div>
-                    <div class="link-title">Library</div>
+                    <div class="link-title">Resources</div>
                 </a>
 
-                <a href="#email" class="link-card">
+                <a href="#contact" class="link-card">
                     <div class="link-icon">✉️</div>
-                    <div class="link-title">Email</div>
+                    <div class="link-title">Contact Us</div>
                 </a>
 
-                <a href="#forum" class="link-card">
-                    <div class="link-icon">💭</div>
-                    <div class="link-title">Discussion Forum</div>
-                </a>
-
-                <a href="#schedule" class="link-card">
-                    <div class="link-icon">🗓️</div>
-                    <div class="link-title">Class Schedule</div>
-                </a>
-
-                <a href="#help" class="link-card">
+                <a href="#faq" class="link-card blue">
                     <div class="link-icon">❓</div>
-                    <div class="link-title">Help Center</div>
+                    <div class="link-title">FAQ</div>
                 </a>
             </div>
         </section>
@@ -401,7 +518,7 @@
 
         // Add active state to current nav link based on scroll position
         window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
+            const sections = document.querySelectorAll('section, header');
             const navLinks = document.querySelectorAll('.nav-links a');
             
             let current = '';
@@ -415,17 +532,11 @@
             });
 
             navLinks.forEach(link => {
-                link.style.borderLeft = '4px solid transparent';
+                link.classList.remove('active');
                 if (link.getAttribute('href') === `#${current}`) {
-                    link.style.borderLeft = '4px solid #667eea';
+                    link.classList.add('active');
                 }
             });
-        });
-
-        // Add hover effect enhancement
-        const navbar = document.querySelector('.navbar');
-        navbar.addEventListener('mouseenter', () => {
-            document.body.style.overflowX = 'hidden';
         });
 
         // Initialize animations
@@ -434,7 +545,7 @@
             cards.forEach((card, index) => {
                 card.style.opacity = '0';
                 setTimeout(() => {
-                    card.style.transition = 'opacity 0.5s ease, transform 0.3s ease';
+                    card.style.transition = 'opacity 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease';
                     card.style.opacity = '1';
                 }, index * 100);
             });
